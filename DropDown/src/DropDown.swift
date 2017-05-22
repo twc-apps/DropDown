@@ -800,12 +800,12 @@ extension DropDown {
 			withDuration: animationduration,
 			delay: 0,
 			options: animationExitOptions,
-			animations: { [unowned self] in
-				self.setHiddentState()
+			animations: { [weak self] in
+				self?.setHiddentState()
 			},
-			completion: { [unowned self] finished in
-				self.isHidden = true
-				self.removeFromSuperview()
+			completion: { [weak self] finished in
+				self?.isHidden = true
+				self?.removeFromSuperview()
 			})
 	}
 
